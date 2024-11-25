@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>moderator</title>
+</head>
+<body>
+  <form>
+    <p><input type="checkbox" name="bathroom">bathroom</p>
+    <p><input type="checkbox" name="garage">garage</p>
+    <p><input type="checkbox" name="den">den</p>
+    <p><input type="checkbox" name="storage">storage</p>
+    <p><input type="checkbox" name="kitchen">kitchen</p>
+    <p><input type="checkbox" name="stairs">stairs</p>
+    <p><input type="checkbox" name="bedroom_2">bedroom_2</p>
+    <p><input type="checkbox" name="bedroom_3">bedroom_3</p>
+    <p><input type="checkbox" name="bedroom_4">bedroom_4</p>
+    <p><input type="checkbox" name="dining">dining</p>
+    <p><input type="checkbox" name="closet">closet</p>
+    <p><input type="checkbox" name="master_bath">master_bath</p>
+    <p><input type="checkbox" name="master_bedroom">master_bedroom</p>
+    <p><input type="checkbox" name="master_closet">master_closet</p>
+    <p><input type="checkbox" name="upstairs">upstairs</p>
+  </form>
+
+	<script type="module">
+		import { io } from './io.js';
+		const socket = io();
+
+    document.body.querySelector('form').addEventListener('change', ({ target }) => {
+      socket.emit('change', {
+        room: target.name,
+        visible: target.checked,
+      });
+    });
+	</script>
+</body>
+</html>

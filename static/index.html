@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1206 Spooner Avenue</title>
+	<style>
+		img {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+    .js-hidden {
+      display: none;
+    }
+	</style>
+</head>
+<body>
+  <img src="./img/foyer.png">
+
+  <img id="bathroom" class="js-hidden" src="./img/bathroom.png">
+  <img id="garage" class="js-hidden" src="./img/garage.png">
+  <img id="den" class="js-hidden" src="./img/den.png">
+  <img id="storage" class="js-hidden" src="./img/storage.png">
+  <img id="kitchen" class="js-hidden" src="./img/kitchen.png">
+  <img id="stairs" class="js-hidden" src="./img/stairs.png">
+  <img id="bedroom_2" class="js-hidden" src="./img/bedroom_2.png">
+  <img id="bedroom_3" class="js-hidden" src="./img/bedroom_3.png">
+  <img id="bedroom_4" class="js-hidden" src="./img/bedroom_4.png">
+  <img id="dining" class="js-hidden" src="./img/dining.png">
+  <img id="closet" class="js-hidden" src="./img/closet.png">
+  <img id="master_bath" class="js-hidden" src="./img/master_bath.png">
+  <img id="master_bedroom" class="js-hidden" src="./img/master_bedroom.png">
+  <img id="master_closet" class="js-hidden" src="./img/master_closet.png">
+  <img id="upstairs" class="js-hidden" src="./img/upstairs.png">
+
+	<script type="module">
+		import { io } from './io.js';
+		const socket = io();
+
+		socket.on('changed', ({ room, visible }) => {
+      const classList = document.getElementById(room).classList;
+      visible ? classList.remove('js-hidden') : classList.add('js-hidden');
+		});
+	</script>
+</body>
+</html>

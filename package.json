@@ -1,0 +1,41 @@
+{
+  "name": "1206_spooner_avenue",
+  "version": "0.1.0",
+  "description": "An interactive map for a \"Music from a Darkened Room\" Delta Green investigation",
+  "author": "Andrey Sakharov <caxap_8787@mail.ru> (https://www.linkedin.com/in/andrey-sakharov/)",
+  "license": "MIT",
+  "type": "module",
+  "module": "./dist/main.mjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node --env-file=.env ./dist/main.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rm -rf dist || npx rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muturgan/1206_spooner_avenue.git"
+  },
+  "keywords": [
+    "map",
+    "TRPG",
+    "Delta Green",
+    "socket",
+    "io"
+  ],
+  "bugs": {
+    "url": "https://github.com/muturgan/1206_spooner_avenue/issues"
+  },
+  "homepage": "https://github.com/muturgan/1206_spooner_avenue#readme",
+  "files": [
+    "dist",
+    "!dist/tests/*"
+  ],
+  "dependencies": {
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.7",
+    "typescript": "^5.7.2"
+  }
+}

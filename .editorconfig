@@ -8,7 +8,7 @@ indent_style = space
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.ts, *.tsx]
+[*.ts, *.mts, *.tsx]
 indent_size = 3
 indent_style = tab
 
