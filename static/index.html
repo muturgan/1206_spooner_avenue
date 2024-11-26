@@ -40,9 +40,13 @@
 		import { io } from './io.js';
 		const socket = io();
 
-		socket.on('changed', ({ room, visible }) => {
-      const classList = document.getElementById(room).classList;
-      visible ? classList.remove('js-hidden') : classList.add('js-hidden');
+    const pageSession = new URLSearchParams(location.search).toString();
+
+		socket.on('changed', ({ room, visible, session }) => {
+      if (pageSession === session) {
+        const classList = document.getElementById(room).classList;
+        visible ? classList.remove('js-hidden') : classList.add('js-hidden');
+      }
 		});
 	</script>
 </body>

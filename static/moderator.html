@@ -29,10 +29,13 @@
 		import { io } from './io.js';
 		const socket = io();
 
+    const session = new URLSearchParams(location.search).toString();
+
     document.body.querySelector('form').addEventListener('change', ({ target }) => {
       socket.emit('change', {
         room: target.name,
         visible: target.checked,
+        session,
       });
     });
 	</script>
