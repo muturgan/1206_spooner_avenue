@@ -5,7 +5,7 @@ import { extname, join as joinPath } from 'node:path';
 import { Server } from 'socket.io';
 
 
-const MIME_TYPES: Record<string, string> = {
+const MIME_TYPES = {
 	default: 'application/octet-stream',
 	html: 'text/html',
 	css: 'text/css',
@@ -13,7 +13,7 @@ const MIME_TYPES: Record<string, string> = {
 	png: 'image/png',
 };
 
-const prepareFile = (url: string) => {
+const prepareFile = (url) => {
 	let fileName = url === '/'
 		? 'index.html'
 		: url === '/moderator'
@@ -30,7 +30,7 @@ const prepareFile = (url: string) => {
 	return { mime, stream };
 };
 
-const server = createServer(async (req, res): Promise<void> => {
+const server = createServer(async (req, res) => {
 	switch (req.method) {
 		case 'GET':
 			if (req.url === undefined) {
@@ -38,13 +38,15 @@ const server = createServer(async (req, res): Promise<void> => {
 				return;
 			}
 
-			if (req.url === '/favicon.ico') {
+      const [url] = req.url.split('?');
+
+			if (url === '/favicon.ico') {
 				res.writeHead(204);
 				res.end();
 				return;
 			}
 
-			const file = prepareFile(req.url);
+			const file = prepareFile(url);
 			if (file === null) {
 				res.writeHead(404);
 				res.end('Not Found');

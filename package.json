@@ -5,12 +5,11 @@
   "author": "Andrey Sakharov <caxap_8787@mail.ru> (https://www.linkedin.com/in/andrey-sakharov/)",
   "license": "MIT",
   "type": "module",
-  "module": "./dist/main.mjs",
+  "module": "./main.mjs",
+  "private": true,
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "start": "node --env-file=.env ./dist/main.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rm -rf dist || npx rimraf dist"
+    "start": "node --env-file=.env ./main.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -27,15 +26,10 @@
     "url": "https://github.com/muturgan/1206_spooner_avenue/issues"
   },
   "homepage": "https://github.com/muturgan/1206_spooner_avenue#readme",
-  "files": [
-    "dist",
-    "!dist/tests/*"
-  ],
   "dependencies": {
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "@types/node": "^20.17.7",
-    "typescript": "^5.7.2"
+    "@types/node": "^20.17.7"
   }
 }
