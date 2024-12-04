@@ -38,7 +38,7 @@ const server = createServer(async (req, res) => {
 				return;
 			}
 
-      const [url] = req.url.split('?');
+			const [url] = req.url.split('?');
 
 			if (url === '/favicon.ico') {
 				res.writeHead(204);
